@@ -33,10 +33,10 @@ export const Router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       // this is all public routes
-    //   {
-    //     path: "/",
-    //     element: <Main />,
-    //   },
+      {
+        path: "/",
+        element: <Main />,
+      },
     //   {
     //     path: "posts",
     //     element: <Posts />,
@@ -50,18 +50,18 @@ export const Router = createBrowserRouter([
     //     path: "achievements",
     //     element: <SuccessNotice />,
     //   },
-    //   {
-    //     path: "aboutUs",
-    //     element: <AboutUs />,
-    //   },
-    //   {
-    //     path: "contactUs",
-    //     element: <ContactUs />,
-    // },
-    //   {
-    //     path: "login",
-    //     element: <Login />,
-    //   },
+      {
+        path: "aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "contactUs",
+        element: <ContactUs />,
+    },
+      {
+        path: "login",
+        element: <Login />,
+      },
       {
         path: "register",
         element: <Register />,
