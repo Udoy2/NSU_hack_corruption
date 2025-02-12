@@ -10,14 +10,14 @@ import Register from "../components/authForm/Register.jsx";
 // import ContactUs from "../components/main/contactUs/ContactUs.jsx";
 // import AboutUs from "../components/main/aboutUs/AboutUs.jsx";
 import UserDash from "../userComponents/userDashBoard/UserDash.jsx";
-// import CreatePost from "../userComponents/userCreatePost/CreatePost.jsx";
+import CreatePost from "../userComponents/userCreatePost/CreatePost.jsx";
 // import ForgotPassword from "../components/authForm/ForgotPassword.jsx";
 // import AllUsers from "../adminComponents/allUsers/AllUsers.jsx";
 // import AllPosts from "../adminComponents/allPosts/AllPosts.jsx";
-// import UserProfile from "../adminComponents/allUsers/UserProfile.jsx";
+import UserProfile from "../adminComponents/allUsers/UserProfile.jsx";
 // import DetailsPost from "../components/main/detailsPost/DetailsPost.jsx";
 // import SuccessReportForm from "../adminComponents/successReport/SuccessReportForm.jsx";
-// import UserActivities from "../userComponents/userActivities/UserActivities.jsx";
+import UserActivities from "../userComponents/userActivities/UserActivities.jsx";
 // import AllSuccessReports from "../adminComponents/allActivities/AllSuccessReports.jsx";
 // import DetailsSuccessReport from "../components/main/detailsSuccessReport/DetailsSuccessReport.jsx";
 // import AdminDash from "../adminComponents/adminDash/AdminDash.jsx";
@@ -81,14 +81,14 @@ export const Router = createBrowserRouter([
         path: "userDashboard",
         element: <PrivateRoute><UserRouteProvider><UserDash /></UserRouteProvider></PrivateRoute>,
       },
-    //   {
-    //     path: "createPost",
-    //     element: <PrivateRoute><UserRouteProvider><CreatePost /></UserRouteProvider></PrivateRoute>,
-    //   },
-    //   {
-    //     path: "myActivities",
-    //     element: <UserActivities />,
-    //   },
+      {
+        path: "createPost",
+        element: <PrivateRoute><UserRouteProvider><CreatePost /></UserRouteProvider></PrivateRoute>,
+      },
+      {
+        path: "myActivities",
+        element: <UserActivities />,
+      },
 
 
     //   // admin and government routes
@@ -101,11 +101,11 @@ export const Router = createBrowserRouter([
     //     path:'/admin/allUsers',
     //     element: <PrivateRoute><AdminRouteProvider><AllUsers/></AdminRouteProvider></PrivateRoute>
     //   },
-    //   {
-    //     path:'/admin/allUsers/:id',
-    //     element: <PrivateRoute><AdminRouteProvider><UserProfile/></AdminRouteProvider></PrivateRoute>,
-    //     loader: ({params})=>fetch(`http://localhost:3000/admin/allUsers/${params.id}`)
-    //   },
+      {
+        path:'/admin/allUsers/:id',
+        element: <PrivateRoute><AdminRouteProvider><UserProfile/></AdminRouteProvider></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:3000/admin/allUsers/${params.id}`)
+      },
     //   {
     //     path:'/admin/allPosts',
     //     element: <PrivateRoute><AdminRouteProvider><AllPosts/></AdminRouteProvider></PrivateRoute>
