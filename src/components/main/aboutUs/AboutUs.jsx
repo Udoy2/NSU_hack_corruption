@@ -10,7 +10,7 @@ const AboutUs = () => {
     <section className="mx-4 sm:mx-20 screen">
       <div className="flex flex-col md: justify-start items-start gap-6 mb-10">
         <h2 className="text-4xl mb-8 mt-20 playfair font-bold text-start text-[#329980] ">
-          How to Report an Incident?
+          Impact of Corruption and Ways to Fight it
         </h2>
         <img
           src="https://img.freepik.com/free-photo/hands-passing-money-table-corruption-bribery_53876-139611.jpg?t=st=1739221750~exp=1739225350~hmac=53ba27449c0fccfd2c6cdb388a497f35d26fb89cac6eb50022bae841121c4219&w=1380"

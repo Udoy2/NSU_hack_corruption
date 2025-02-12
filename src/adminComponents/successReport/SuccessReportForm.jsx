@@ -4,6 +4,7 @@ import UseAxiosSecure from "../../customHooks/UseAxiosSecure";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../userComponents/userLayout/SideBar";
 import { FaBars } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const SuccessReportForm = () => {
   const [step, setStep] = useState(1);
@@ -44,7 +45,8 @@ const SuccessReportForm = () => {
 
   const handleFinish = () => {
     if (!formData.actions_taken.trim() || !formData.message.trim()) {
-      alert("Please complete all fields before submitting.");
+      // alert("Please complete all fields before submitting.");
+      toast.error("Please complete all fields before submit")
       return;
     }
 
@@ -52,7 +54,8 @@ const SuccessReportForm = () => {
 
     axiosSecure.post("/successReport", formData).then((res) => {
       console.log(res.data);
-      alert("Success Report Submitted Successfully!");
+      // alert("Success Report Submitted Successfully!");
+      toast.success("Success Report submitted sucessfully")
       navigate("/userDashboard");
     });
   };

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
+import { IoCall } from "react-icons/io5";
+
 
 const ContactUs = () => {
   const [contact, setContact] = useState({
@@ -26,7 +28,7 @@ const ContactUs = () => {
 
   return (
     <section className="mx-4 sm:mx-20 lg:mx-60 my-20">
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-3">
         <div className="flex justify-center items-center gap-4">
           <img
             src="/images/corruption.png"
@@ -39,9 +41,29 @@ const ContactUs = () => {
             </p>
             <h3 className="text-md font-bold">Report Corruption</h3>
           </div>
+          
         </div>
         <button className="flex justify-center items-center bg-red-800 px-5 py-2 rounded-md hover:bg-red-700 cursor-pointer gap-3">
           <SlArrowRight /> Report Corruption
+        </button>
+      </div>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+        <div className="flex justify-center items-center gap-4">
+          <img
+            src="/images/corruption.png"
+            alt="corruption"
+            className="w-12 sm:w-20"
+          />
+          <div>
+            <p className="text-sm lg:text-md font-light">
+              For an Emergency Call
+            </p>
+            <h3 className="text-md font-bold">Call Now</h3>
+          </div>
+          
+        </div>
+        <button className="flex justify-center items-center bg-red-800 px-5 py-2 rounded-md hover:bg-red-700 cursor-pointer gap-3">
+        <IoCall /><a href="tel:88-02-58311026">Click Here</a> 
         </button>
       </div>
 
@@ -97,7 +119,7 @@ const ContactUs = () => {
             <h5 className="mb-1">
               Contact No:{" "}
               <span className="text-[#0288D1]">
-              <a href="tel:88-02-58311026">call us!</a> , 88-02-222223828
+              <a href="tel:88-02-58311026">88-02-58311026</a> 
               </span>
             </h5>
             <h5>Head Office, 1 SegunBagicha, Dhaka - 1000.</h5>

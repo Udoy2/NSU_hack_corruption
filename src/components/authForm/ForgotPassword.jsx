@@ -2,6 +2,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.config";
+import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,8 @@ const ForgotPassword = () => {
     }else{
         sendPasswordResetEmail(auth, email)
         .then(()=>{
-            alert("password reset email send");
+            // alert("password reset email send");
+            toast.success("password reset email send")
             navigate('/login');
         })
     }

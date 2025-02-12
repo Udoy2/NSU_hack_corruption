@@ -7,6 +7,7 @@ import axios from "axios";
 import { sendEmailVerification, sendSignInLinkToEmail } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import UseAxiosSecure from "../../customHooks/UseAxiosSecure";
+import { toast } from 'react-toastify';
 
 const Register = () => {
   // context
@@ -144,7 +145,8 @@ const Register = () => {
               console.log(result.user);
               // send verification mail
               sendEmailVerification(auth.currentUser).then(() => {
-                alert("email verification mail send");
+                // alert("email verification mail send");
+                toast.info("email verification mail send")
 
                 updateUserProfile({
                   displayName: userData.username,
@@ -172,7 +174,8 @@ const Register = () => {
             })
             .catch(handleError);
         } else {
-          alert(`Your ${userData.idType} number is not valid`);
+        //   alert(`Your ${userData.idType} number is not valid`);
+        toast.error(`Your ${userData.idType} number is not valid`)
         }
       })
       .catch((error) => {

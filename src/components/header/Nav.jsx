@@ -1,8 +1,9 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { MdOutlineMenu, MdOutlineReportProblem } from "react-icons/md";
+import { MdOutlineMenu} from "react-icons/md";
 import AuthProviderHook from "../../customHooks/AuthProviderHooks";
 import { useEffect, useState } from "react";
 import UseAxiosSecure from "../../customHooks/UseAxiosSecure";
+import { toast } from "react-toastify";
 
 const Nav = () => {
   let { user, setUser, signOutUser, handleError } = AuthProviderHook();
@@ -42,7 +43,10 @@ const Nav = () => {
       .then(() => {
         setUser(null);
         navigate("/login");
-        alert("signout successful");
+        // alert("signout successful");
+    
+        toast.success("logout successfully");
+
       })
       .catch(handleError);
   };
