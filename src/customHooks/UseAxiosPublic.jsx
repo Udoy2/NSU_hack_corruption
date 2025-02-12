@@ -1,11 +1,15 @@
-import React from 'react';
+import axios from "axios";
+
+
+
+const axiosPublic = axios.create({
+    baseURL:'https://medi-bazaar-backend.vercel.app',
+    // withCredentials:true
+})
+
 
 const UseAxiosPublic = () => {
-    return (
-        <div>
-            use axios secure
-        </div>
-    );
+    return axiosPublic;
 };
 
 export default UseAxiosPublic;
