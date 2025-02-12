@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+body{
+    background: #1A222C;
+    color: #FFFFFF;
+}
+.screen{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.active{
+    font-weight: bold;
+    color: #03A688;
+}
+
+.playfair{
+    font-family: "Playfair Display", serif;
+}
+
+.raleway{
+    font-family: "Raleway", serif;
+}
+
+.card {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+}
