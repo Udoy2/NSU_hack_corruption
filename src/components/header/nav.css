@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+/* Scope styling only to the navbar title */
+.nav-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px; /* Adjust height to match the navbar */
+    padding: 0 15px;
+}
+
+/* Set a fixed size to prevent layout issues */
+.nav-title-container svg {
+    font-family: "Russo One", sans-serif;
+    width: 200px; /* Control SVG size */
+    height: auto;
+}
+
+/* Text animation for the navbar title */
+.nav-title-container svg text {
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #208328;
+    font-size: 30px; /* Adjust size to fit navbar */
+    text-anchor: middle;
+}
+
+@keyframes stroke {
+    0% {
+        fill: #1d5d88;
+        stroke: #3AA9F4;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70% {
+        fill: rgba(72,138,204,0);
+        stroke: #3AA9F4;
+    }
+    80% {
+        fill: #8d1c28;
+        stroke: #D32636;
+        stroke-width: 3;
+    }
+    100% {
+        fill: #D32636;
+        stroke: #D32636;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
