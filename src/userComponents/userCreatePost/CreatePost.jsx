@@ -10,7 +10,7 @@ const CreatePost = () => {
   const [step, setStep] = useState(1);
   const [identity, setIdentity] = useState(null);
   const { user, handleError } = AuthProviderHook();
-  const [aiDescription, setAiDescription] = useState('');
+  const [aiDescription, setAiDescription] = useState("");
 
   const axiosSecure = UseAxiosSecure();
   let navigate = useNavigate();
@@ -55,20 +55,49 @@ const CreatePost = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const res = await fetch(
+        `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMAGE_HOSTING_KEY}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await res.json();
+      if (data.success) {
+        setFormData((prev) => ({ ...prev, imageUrl: data.data.url }));
+        alert("Image uploaded successfully!");
+      } else {
+        alert("Image upload failed!");
+      }
+    } catch (error) {
+      console.error("Image upload error:", error);
+      alert("Error uploading image.");
+    }
+  };
+
   const handleNext = () => {
     if (step === 3) {
-      console.log("Uploaded Image URL:", formData.imageUrl); 
-
+      console.log("Uploaded Image URL:", formData.imageUrl);
+      
       let imgUrl = formData.imageUrl;
 
       // ai generate description add
-      axiosSecure.get(`/aiGenerateText?imgUrl=${imgUrl}`)
-      .then(res=>{
-        console.log(res.data);
-        setAiDescription(res.data);
-        alert("data come");
-      }).catch(handleError)
-
+      axiosSecure
+        .get(`/aiGenerateText?imgUrl=${imgUrl}`)
+        .then((res) => {
+          console.log(res.data);
+          setAiDescription(res.data);
+          alert("data come");
+        })
+        .catch(handleError);
     }
     if (step === 2 && identity === "yes" && !formData.phoneNumber.trim()) {
       alert("Please enter your phone number.");
@@ -240,13 +269,10 @@ const CreatePost = () => {
                   Image URL
                 </label>
                 <input
-                  type="text"
-                  name="imageUrl"
-                  value={formData.imageUrl}
-                  onChange={handleChange}
-                  required
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
                   className="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded-lg mb-4"
-                  placeholder="Image URL"
                 />
                 <label className="block font-medium mb-2 text-white">
                   Video URL (Optional)
@@ -372,7 +398,7 @@ const CreatePost = () => {
                 </label>
                 <textarea
                   name="description"
-                  value={formData.description || aiDescription}  // Use aiDescription if no user input
+                  value={formData.description || aiDescription} // Use aiDescription if no user input
                   onChange={handleChange}
                   required
                   className="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded-lg mb-4"
