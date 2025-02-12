@@ -48,10 +48,10 @@ const Register = () => {
     }
   };
 
-  //   const actionCodeSettings = {
-  //     url: "http://localhost:3000/verify-email", // Change this to your actual verification page
-  //     handleCodeInApp: true,
-  //   };
+    // const actionCodeSettings = {
+    //   url: "http://localhost:3000/verify-email", // Change this to your actual verification page
+    //   handleCodeInApp: true,
+    // };
 
   //   const handleSubmit = (e) => {
   //     e.preventDefault();
@@ -123,61 +123,61 @@ const Register = () => {
 
     console.log(userData);
 
-    // axios
-    //   .get(
-    //     `/json/${userData.idType === "nid" ? "nidData" : "passportData"}.json`
-    //   )
-    //   .then((res) => {
-    //     const data = res.data; // Assuming it's an array
-    //     console.log(data);
+    axios
+      .get(
+        `/json/${userData.idType === "nid" ? "nidData" : "passportData"}.json`
+      )
+      .then((res) => {
+        const data = res.data; // Assuming it's an array
+        console.log(data);
 
-    //     // Check if idNumber exists in the JSON data
-    //     const foundEntry = data.find(
-    //       (entry) =>
-    //         entry.nid_number === userData.idNumber ||
-    //         entry.passport_number === userData.idNumber
-    //     );
+        // Check if idNumber exists in the JSON data
+        const foundEntry = data.find(
+          (entry) =>
+            entry.nid_number === userData.idNumber ||
+            entry.passport_number === userData.idNumber
+        );
 
-    //     if (foundEntry) {
-    //       registerWithEmail(email, passport)
-    //         .then((result) => {
-    //           console.log(result.user);
-    //           // send verification mail
-    //           sendEmailVerification(auth.currentUser).then(() => {
-    //             alert("email verification mail send");
+        if (foundEntry) {
+          registerWithEmail(email, passport)
+            .then((result) => {
+              console.log(result.user);
+              // send verification mail
+              sendEmailVerification(auth.currentUser).then(() => {
+                alert("email verification mail send");
 
-    //             updateUserProfile({
-    //               displayName: userData.username,
-    //               photoURL: userData.profileImage,
-    //             })
-    //               .then(() => {
+                updateUserProfile({
+                  displayName: userData.username,
+                  photoURL: userData.profileImage,
+                })
+                  .then(() => {
 
-    //                 // send data to backend;
-    //                 axiosSecure.post('/users', userData)
-    //                 .then(res=>{
-    //                   console.log(res.data);
-    //                 })
+                    // send data to backend;
+                    axiosSecure.post('/users', userData)
+                    .then(res=>{
+                      console.log(res.data);
+                    })
 
 
-    //                 signOutUser()
-    //                   .then(() => {
-    //                     setUser(null);
-    //                     navigate("/login");
-    //                   })
-    //                   .catch(handleError);
-    //                 console.log(result.user);
-    //               })
-    //               .catch(handleError);
-    //           });
-    //         })
-    //         .catch(handleError);
-    //     } else {
-    //       alert(`Your ${userData.idType} number is not valid`);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching data:", error);
-    //   });
+                    signOutUser()
+                      .then(() => {
+                        setUser(null);
+                        navigate("/login");
+                      })
+                      .catch(handleError);
+                    console.log(result.user);
+                  })
+                  .catch(handleError);
+              });
+            })
+            .catch(handleError);
+        } else {
+          alert(`Your ${userData.idType} number is not valid`);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
   return (

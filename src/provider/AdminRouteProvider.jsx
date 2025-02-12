@@ -7,7 +7,7 @@ import Loading from '../loading/loading';
 const AdminRouteProvider = ({ children }) => {
   const axiosSecure = UseAxiosSecure();
   let { user, handleError, signOutUser } = AuthProviderHook(); 
-  const [role, setRole] = useState('user');
+  const [role, setRole] = useState('admin');
   const [loading, setLoading] = useState(true);  
 
   useEffect(() => {

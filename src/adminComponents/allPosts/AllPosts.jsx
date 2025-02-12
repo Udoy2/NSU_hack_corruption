@@ -23,14 +23,17 @@ const AdminAllPosts = () => {
   let { loading, setLoading, handleError } = AuthProviderHook();
 
   useEffect(() => {
-    setLoading(true);
     axiosSecure
       .get("/allReports")
       .then((res) => {
+        console.log("API Response:", res.data);
         setPosts(res.data);
         setLoading(false);
       })
-      .catch(handleError);
+      .catch((error) => {
+        console.error("API Error:", error);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) return <Loading />;
