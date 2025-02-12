@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+
+
+.spinner {
+    font-family: "Russo One", sans-serif;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+}
+
+.spinner text {
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #208328;
+    font-size: 50px;
+    text-anchor: middle;
+}
+
+@keyframes stroke {
+    0% {
+        fill: #1d5d88;
+        stroke: #3AA9F4;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70% {
+        fill: rgba(72,138,204,0);
+        stroke: #3AA9F4;
+    }
+    80% {
+        fill: #8d1c28;
+        stroke: #D32636;
+        stroke-width: 3;
+    }
+    100% {
+
+        fill: #D32636;
+        stroke: #D32636;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
