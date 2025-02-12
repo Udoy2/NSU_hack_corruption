@@ -7,7 +7,7 @@ import Loading from '../loading/loading';
 const UserRouteProvider = ({ children }) => {
   const axiosSecure = UseAxiosSecure();
   let { user, handleError, signOutUser } = AuthProviderHook(); 
-  const [role, setRole] = useState('admin');  // Default to admin as we want to block admins from this route
+  const [role, setRole] = useState('user');  // Default to admin as we want to block admins from this route
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
