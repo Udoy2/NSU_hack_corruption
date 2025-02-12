@@ -9,7 +9,7 @@ import Register from "../components/authForm/Register.jsx";
 // import SuccessNotice from "../components/main/notices/SuccessNotices.jsx";
 // import ContactUs from "../components/main/contactUs/ContactUs.jsx";
 // import AboutUs from "../components/main/aboutUs/AboutUs.jsx";
-// import UserDash from "../userComponents/userDashBoard/UserDash.jsx";
+import UserDash from "../userComponents/userDashBoard/UserDash.jsx";
 // import CreatePost from "../userComponents/userCreatePost/CreatePost.jsx";
 // import ForgotPassword from "../components/authForm/ForgotPassword.jsx";
 // import AllUsers from "../adminComponents/allUsers/AllUsers.jsx";
@@ -76,11 +76,11 @@ export const Router = createBrowserRouter([
     //     loader: ({params})=>fetch(`http://localhost:3000/successReport/${params.id}`)
     //   },
 
-    //   // this is all the private routes
-    //   {
-    //     path: "userDashboard",
-    //     element: <PrivateRoute><UserRouteProvider><UserDash /></UserRouteProvider></PrivateRoute>,
-    //   },
+      // this is all the private routes
+      {
+        path: "userDashboard",
+        element: <PrivateRoute><UserRouteProvider><UserDash /></UserRouteProvider></PrivateRoute>,
+      },
     //   {
     //     path: "createPost",
     //     element: <PrivateRoute><UserRouteProvider><CreatePost /></UserRouteProvider></PrivateRoute>,
