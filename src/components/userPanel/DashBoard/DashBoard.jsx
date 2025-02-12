@@ -54,7 +54,7 @@ export default function Dashboard() {
             <FaBell className="text-gray-200 p-2 rounded-full mr-4" />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
           <DashboardCard icon={FaEye} value="$3.456K" label="Total Views" trend={0.43} />
           <DashboardCard icon={FaShoppingCart} value="$45.2K" label="Total Profit" trend={4.35} />
           <DashboardCard icon={FaBox} value="2.450" label="Total Products" trend={2.59} />
