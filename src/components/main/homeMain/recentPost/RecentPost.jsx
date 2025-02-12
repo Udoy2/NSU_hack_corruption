@@ -22,7 +22,7 @@ const RecentPost = () => {
           Recent Posts
         </h2>
         <Link
-          to={'/achievements'}
+          to={'/posts'}
           className="text-[#b8b8b8] font-semibold hover:text-[#1ca288] hover:underline transition duration-300 "
         >
           See More 

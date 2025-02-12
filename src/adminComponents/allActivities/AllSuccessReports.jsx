@@ -19,7 +19,6 @@ const AllSuccessReports = () => {
   const postsPerPage = 8;
 
   useEffect(() => {
-    setLoading(true);
     axiosSecure
       .get("/successReport")
       .then((res) => {

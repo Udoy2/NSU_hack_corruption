@@ -37,7 +37,7 @@ const SuccessReportForm = () => {
       (step === 2 &&
         (!formData.location || !formData.category || !formData.date_reported))
     ) {
-      alert("Please fill out all required fields.");
+      toast.error("Please fill out all required fields.");
       return;
     }
     setStep(step + 1);

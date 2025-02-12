@@ -3,6 +3,7 @@ import { FaUser, FaCloudUploadAlt, FaBars } from "react-icons/fa";
 import UseAxiosSecure from "../../customHooks/UseAxiosSecure";
 import AuthProviderHook from "../../customHooks/AuthProviderHooks";
 import Sidebar from "../../userComponents/userLayout/SideBar";
+import { toast } from "react-toastify";
 
 const AdminDash = () => {
   const axiosSecure = UseAxiosSecure();
@@ -39,7 +40,7 @@ const AdminDash = () => {
           displayName: res.data.username,
           photoURL: res.data.photoUrl,
         }).then(() => {
-          alert("Admin data updated");
+          toast.success("Admin data updated");
         });
       })
       .catch(handleError);

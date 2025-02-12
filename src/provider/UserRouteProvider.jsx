@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import UseAxiosSecure from '../customHooks/UseAxiosSecure';
 import AuthProviderHook from '../customHooks/AuthProviderHooks';
 import Loading from '../loading/loading';
+import { toast } from 'react-toastify';
 
 const UserRouteProvider = ({ children }) => {
   const axiosSecure = UseAxiosSecure();
@@ -25,7 +26,7 @@ const UserRouteProvider = ({ children }) => {
 
   let logout = () => {
     signOutUser().then(() => {
-      alert("You do not have permission to access this route.");
+      toast.error("You do not have permission to access this route.");
     });
   };
 

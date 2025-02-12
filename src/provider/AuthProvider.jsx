@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase.config";
+import { toast } from "react-toastify";
 //   import UseAxiosPublic from "../customHooks/UseAxiosPublic";
 //   import { toast } from "react-toastify";
 
@@ -41,7 +42,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleError = (error) => {
-    alert(error.message);
+    toast.error(error.message);
     setLoading(false);
   };
 

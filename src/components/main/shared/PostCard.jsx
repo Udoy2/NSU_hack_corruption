@@ -60,7 +60,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
-  console.log(post);
+  console.log(post.userPhoto);
   const { title, description, photo_url, category, posted_time, verification_status, user_image, name } = post;
 
   console.log(name)
@@ -98,7 +98,7 @@ const PostCard = ({ post }) => {
       {/* User Info */}
       <div className="flex items-center mb-4">
         <img
-          src={displayUserImage}
+          src={displayUserImage || "https://i.ibb.co.com/xKjsYk7w/demo.png"}
           alt={name}
           className="w-10 h-10 rounded-full mr-3"
         />

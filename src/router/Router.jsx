@@ -79,7 +79,7 @@ export const Router = createBrowserRouter([
       // this is all the private routes
       {
         path: "userDashboard",
-        element: <PrivateRoute><UserRouteProvider><UserDash /></UserRouteProvider></PrivateRoute>,
+        element: <PrivateRoute><UserDash /></PrivateRoute>,
       },
       {
         path: "createPost",
@@ -95,28 +95,28 @@ export const Router = createBrowserRouter([
 
       {
         path:'/adminDashboard',
-        element: <PrivateRoute><AdminRouteProvider><AdminDash/></AdminRouteProvider></PrivateRoute>
+        element: <PrivateRoute><AdminDash/></PrivateRoute>
       },
       {
         path:'/admin/allUsers',
-        element: <PrivateRoute><AdminRouteProvider><AllUsers/></AdminRouteProvider></PrivateRoute>
+        element: <PrivateRoute><AllUsers/></PrivateRoute>
       },
       {
         path:'/admin/allUsers/:id',
-        element: <PrivateRoute><AdminRouteProvider><UserProfile/></AdminRouteProvider></PrivateRoute>,
+        element: <PrivateRoute><UserProfile/></PrivateRoute>,
         loader: ({params})=>fetch(`http://localhost:3000/admin/allUsers/${params.id}`)
       },
       {
         path:'/admin/allPosts',
-        element: <PrivateRoute><AdminRouteProvider><AllPosts/></AdminRouteProvider></PrivateRoute>
+        element: <PrivateRoute><AllPosts/></PrivateRoute>
       },
       {
         path:'/admin/successFrom',
-        element: <PrivateRoute><AdminRouteProvider><SuccessReportForm/></AdminRouteProvider></PrivateRoute>
+        element: <PrivateRoute><SuccessReportForm/></PrivateRoute>
       },
       {
         path:'/admin/allSuccessReports',
-        element: <PrivateRoute><AdminRouteProvider><AllSuccessReports/></AdminRouteProvider></PrivateRoute>
+        element: <PrivateRoute><AllSuccessReports/></PrivateRoute>
       },
 
     ],

@@ -5,6 +5,7 @@ import UseAxiosSecure from "../../customHooks/UseAxiosSecure";
 import { useNavigate } from "react-router-dom";
 import AuthProviderHook from "../../customHooks/AuthProviderHooks";
 import { FaBars } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const CreatePost = () => {
   const [step, setStep] = useState(1);
@@ -73,13 +74,13 @@ const CreatePost = () => {
       const data = await res.json();
       if (data.success) {
         setFormData((prev) => ({ ...prev, imageUrl: data.data.url }));
-        alert("Image uploaded successfully!");
+        toast.success("Image uploaded successfully!");
       } else {
-        alert("Image upload failed!");
+        toast.error("Image upload failed!");
       }
     } catch (error) {
       console.error("Image upload error:", error);
-      alert("Error uploading image.");
+      toast.error("Error uploading image.");
     }
   };
 
@@ -95,19 +96,18 @@ const CreatePost = () => {
         .then((res) => {
           console.log(res.data);
           setAiDescription(res.data);
-          alert("data come");
         })
         .catch(handleError);
     }
     if (step === 2 && identity === "yes" && !formData.phoneNumber.trim()) {
-      alert("Please enter your phone number.");
+      toast.error("Please enter your phone number.");
       return;
     }
     if (
       step === 3 &&
       (!formData.category || !formData.title || !formData.imageUrl)
     ) {
-      alert("Please fill out all required fields.");
+      toast.error("Please fill out all required fields.");
       return;
     }
     if (
@@ -117,7 +117,7 @@ const CreatePost = () => {
         !formData.location ||
         !formData.positionDetails)
     ) {
-      alert("Please fill out all required fields.");
+      toast.error("Please fill out all required fields.");
       return;
     }
 
@@ -126,7 +126,7 @@ const CreatePost = () => {
 
   const handleFinish = () => {
     if (!formData.description.trim()) {
-      alert("Please provide a description.");
+      toast.error("Please provide a description.");
       return;
     }
 
@@ -140,7 +140,7 @@ const CreatePost = () => {
       .post(`/createPost?email=${user.email}`, formData)
       .then((res) => {
         console.log(res.data);
-        alert("Report Submitted Successfully!");
+        toast.success("Report Submitted Successfully!");
         navigate("/myActivities");
       });
     console.log("Report Submitted:", formData);
@@ -401,7 +401,7 @@ const CreatePost = () => {
                   value={formData.description || aiDescription} // Use aiDescription if no user input
                   onChange={handleChange}
                   required
-                  className="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded-lg mb-4"
+                  className="w-full h-[300px] p-2 bg-gray-700 text-white border border-gray-600 rounded-lg mb-4"
                   placeholder="Brief description"
                 ></textarea>
                 <div className="flex justify-between">
