@@ -8,6 +8,8 @@ import {
 import Lottie from "lottie-react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthProviderHook from "../../customHooks/AuthProviderHooks";
+ import { toast } from 'react-toastify';
+
 
 const Login = () => {
   let {
@@ -60,11 +62,12 @@ const Login = () => {
             navigate("/login");
           })
           .catch(handleError);
-          return alert("Please verify your email address");
+        //   return alert("Please verify your email address");
+        return toast.error("please verify your email address ")
         }
         setUser(result.user);
         navigate("/")
-        alert("login successfully");
+       toast.success("Login successfully")
       })
       .catch(handleError);
 

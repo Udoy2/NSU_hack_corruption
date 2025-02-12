@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from "./AuthProvider";
 import Loading from "../loading/loading";
+import { toast } from "react-toastify";
 
 const PrivateRoute = ({ children }) => {
   let { user, loading } = useContext(AuthContext);
@@ -11,7 +12,8 @@ const PrivateRoute = ({ children }) => {
   // Function to handle the redirect and alert
   const handleRedirect = () => {
     if (!alertShown) {
-      alert("You need to be logged in to access this page.");
+      // alert("You need to be logged in to access this page.");
+      toast.error("you need to be logged in to access this page ")
       setAlertShown(true);  // Ensure alert is shown only once
     }
   };

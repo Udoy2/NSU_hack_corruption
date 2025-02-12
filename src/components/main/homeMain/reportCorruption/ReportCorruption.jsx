@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSearch, FaBalanceScale, FaFileAlt, FaClipboardCheck } from "react-icons/fa";
-import { Link } from "react-router-dom";
+
 
 const steps = [
   {

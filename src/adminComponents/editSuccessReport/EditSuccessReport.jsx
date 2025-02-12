@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UseAxiosSecure from "../../customHooks/UseAxiosSecure";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const EditSuccessReport = ({ report, onClose }) => {
   const axiosSecure = UseAxiosSecure();
@@ -40,12 +41,14 @@ const EditSuccessReport = ({ report, onClose }) => {
     console.log(formData)
     axiosSecure.put(`/successReport/${report._id}`, formData)
       .then((res) => {
-        alert("Report updated successfully!");
+        // alert("Report updated successfully!");
+        toast.success("Report updated successfully")
         navigate("/userDashboard"); // Redirect to the dashboard or reports page
       })
       .catch((err) => {
         console.error("Error updating the report", err);
-        alert("Failed to update the report.");
+        // alert("Failed to update the report.");
+        toast.error("Failed to update the report")
       });
   };
 

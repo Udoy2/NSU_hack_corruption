@@ -5,6 +5,7 @@ import Loading from "../../loading/loading";
 import AuthProviderHook from "../../customHooks/AuthProviderHooks";
 import Sidebar from "../../userComponents/userLayout/SideBar";
 import { FaBars } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const AllUsers = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -47,7 +48,8 @@ const AllUsers = () => {
           )
         );
         setShowModal(false);
-        alert(isBan ? "User unbanned" : "User banned");
+        // alert(isBan ? "User unbanned" : "User banned");
+        toast.success(isBan ? "User unbanned" : "User banned");
       })
       .catch(handleError);
   };
